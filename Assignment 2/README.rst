@@ -199,3 +199,65 @@ should produce the output ::
 * You can assume that the input queen is always a valid board, with all values distinct and less than the size of board.
 
 
+Task 4: swap queens
+-------
+
+* Similar to task 2, define the function moveTwo(queen) in nqueen.py with one parameter, queen.
+* Parameter queen is a list representing a n-queen problem as described above.
+* The function should always move two queens as described in task 3.
+* For example, for the case of (0, 3, 2, 1), the function should return either (1, 3, 2, 0), (3, 0, 2, 1), or any other board with an attacking count of 1 after swapping the position of two queens.
+* The function should still move two queens if the move results in a higher attacking count.
+* For example, you can test your function in main.py using the following code ::
+
+    from nqueen import *
+    queen1 = (0, 3, 2, 1)
+    queen2 = moveTwo( queen1 )
+    printBoard(queen2)
+    
+which produces the output ::
+
+    - - - Q
+    Q - - -
+    - - Q -
+    - Q - -
+
+* You can assume that the input queen is always a valid board, with all values distinct and less than the size of board.
+* You can assume that the board will not exceed the size of 8.
+
+
+
+Programming part 2: A* search
+=====
+
+Task 1: apply move
+-------
+
+* Define the function applyMove(state, move) in sortballs.py with two parameters, state, and move.
+* Parameter state is a tuple representing a situation as described above.
+* Parameter move is a string, which can be either "PUSH", "PULL", "SWAP", or "FLIP", representing the 4 operations described above.
+* The function should return a new state by applying the specified move as described above.
+* For example, if state is (2, 0, 1, 3, 4, 5) and the move is PUSH, the function should return (0, 2, 1, 3, 4, 5). It can be tested using the following code in main.py ::
+
+    from sortballs import *
+    state = (2, 0, 1, 3, 4, 5)
+    move = 'PUSH'
+    print(applyMove(state, move))
+
+which produces the output ::
+
+    (0, 2, 1, 3, 4, 5)
+    
+* If the specific move is not possible, e.g., there is no ball in the holder to swap, the function return a state that is identical to the input state. For example ::
+
+    from sortballs import *
+    state = (2, 0, 1, 3, 4, 5)
+    move = 'SWAP'
+    print(applyMove(state, move))
+
+which produces the output ::
+
+    (2, 0, 1, 3, 4, 5)
+    
+* You can assume that the input state is always a valid state, i.e., a tuple with values 0 to 5 in any order;
+* You can assume that the input move is always a string of either 'PUSH', 'PULL, 'SWAP', or 'FLIP'.
+
