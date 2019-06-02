@@ -11,7 +11,8 @@ Task 1: Encryption
 * Parameter text is a string to be encrypted.
 * Parameters a and b form the key of the cipher.
 * The function should process each character in text, if the character is a letter, encrypt it using Affine Cipher, otherwise, the character is retained.
-* Once the function is implemented in affine.py, you can test the funtion with the following code in main.py::
+* Once the function is implemented in affine.py, you can test the funtion with the following code in main.py ::
+
     from affine import *
     text = "Attack!"
     a = 9
