@@ -158,6 +158,44 @@ Task 3: The attack matrix II
     15. Queen 3 with queen 2: (0, 3, 1, 2), count: 1
     16. Queen 3 with queen 3: (not a swap)
 
-The corresponding attack matrix will be:
+The corresponding attack matrix will be ::
+
+    -  1  4  1
+    1  -  1  6
+    4  1  -  1
+    1  6  1  -
+
+* Define the function printMatrix2(queen) in nqueen.py with one parameter, queen.
+* Parameter queen is a list representing a n-queen board as described above.
+* The function should print the corresponding attack matrix of swapping 2 queens as explained above, with each value occupying 2 spaces, left-aligned.
+* For example, you can test your function in main.py using the following code ::
+
+        from nqueen import *
+        printMatrix2( (0, 3, 2, 1) )
+
+which produces the output:
+
+    -  1  4  1
+    1  -  1  6
+    4  1  -  1
+    1  6  1  -
+    
+* Similar to the first task, your function should be able to handle boards of different sizes, e.g., ::
+
+    from nqueen import *
+    printMatrix2( (0, 3, 2, 1, 7, 6, 5, 4) )
+    
+should produce the output ::
+
+    -  9  10 9  9  6  6  9
+    9  -  9  12 6  6  6  6
+    10 9  -  9  5  5  5  5
+    9  12 9  -  6  6  6  6
+    9  6  5  6  -  8  8  10
+    6  6  5  6  8  -  10 8
+    6  6  5  6  8  10 -  8
+    9  6  5  6  10 8  8  -
+    
+* You can assume that the input queen is always a valid board, with all values distinct and less than the size of board.
 
 
