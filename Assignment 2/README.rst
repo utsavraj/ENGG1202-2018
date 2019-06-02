@@ -173,7 +173,7 @@ The corresponding attack matrix will be ::
         from nqueen import *
         printMatrix2( (0, 3, 2, 1) )
 
-which produces the output:
+which produces the output ::
 
     -  1  4  1
     1  -  1  6
