@@ -261,3 +261,25 @@ which produces the output ::
 * You can assume that the input state is always a valid state, i.e., a tuple with values 0 to 5 in any order;
 * You can assume that the input move is always a string of either 'PUSH', 'PULL, 'SWAP', or 'FLIP'.
 
+
+
+Task 2: heuristic
+-------
+
+* Define the functon h(state) in sortballs.py with one parameter, state.
+* Parameter state is a tuple representing a situation as described above.
+* The function should evaluate the state and return a heuristic in the following ways:
+    * Calculate value A = number of balls in the holder × cost of PUSH operation.
+    * Calculate value B = number of balls that is on the right of at least one ball with a greater value using the tuple representation described above.
+    * Calculate value C = number of balls that is on the left of at least one ball with a greater value using the tuple representation described above.
+    * Calculate value D = the minimum of:
+        1) value B × cost of SWAP operation, and
+        2) cost of FLIP operation + (value C × cost of SWAP operation).
+    * return the value of A + value of D as the heuristic.
+* For example, to find the heuristic of (2, 5, 4, 1, 3, 0):
+    * A=5×10=50
+    * B=3 (ball 4, 1, and 3)
+    * C=2 (ball 1, and 2)
+    * D=min(3×17,2×17+8)=42
+    * return A+D=92
+* You can test your function with the following code in main.py
