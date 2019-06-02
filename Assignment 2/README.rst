@@ -303,3 +303,56 @@ which produces the output of 92
     * D=min(0,4×17+8)=0
     * return A+D=0 (Goal state)
 * You can assume that the input state is always a valid state, i.e., a tuple with values 0 to 5 in any order.
+
+
+Task 3: get next move
+-------
+
+* Define the function getNext(frontier) in sortballs.py with one parameter, frontier.
+* Parameter frontier is a list of dictionary, each consists of two values, state and path.
+* For every item in frontier:
+    * item['state'] is a tuple representing a situation as described above.
+    * item['path'] is the list of operations that leads to the state item['state'].
+* Your function should remove and *return one item from the frontier, for the purpose of using A-star search to find the fastest operation needed to produce a sorted package.
+* You can use the following code in main.py to test your code ::
+
+    from sortballs import *
+    frontier = [
+      { 'state': (2, 5, 4, 3, 0, 1), 'path': [ 'PULL' ] },
+      { 'state': (2, 4, 5, 0, 3, 1), 'path': [ 'SWAP' ] },
+      { 'state': (2, 5, 4, 0, 1, 3), 'path': [ 'FLIP' ] },
+      { 'state': (2, 0, 5, 4, 3, 1), 'path': [ 'PUSH', 'PUSH' ] },
+      { 'state': (2, 5, 4, 0, 3, 1), 'path': [ 'PUSH', 'PULL' ] },
+      { 'state': (5, 2, 0, 4, 3, 1), 'path': [ 'PUSH', 'SWAP' ] },
+      { 'state': (2, 5, 0, 1, 3, 4), 'path': [ 'PUSH', 'FLIP' ] },
+    ]
+    print("Before getNext:")
+    for f in frontier:
+      print(f)
+    item = getNext(frontier)
+    print("getNext: ", item)
+    print("After getNext:")
+    for f in frontier:
+      print(f)
+
+which produces the output ::
+
+    Before getNext:
+    {'state': (2, 5, 4, 3, 0, 1), 'path': ['PULL']}
+    {'state': (2, 4, 5, 0, 3, 1), 'path': ['SWAP']}
+    {'state': (2, 5, 4, 0, 1, 3), 'path': ['FLIP']}
+    {'state': (2, 0, 5, 4, 3, 1), 'path': ['PUSH', 'PUSH']}
+    {'state': (2, 5, 4, 0, 3, 1), 'path': ['PUSH', 'PULL']}
+    {'state': (5, 2, 0, 4, 3, 1), 'path': ['PUSH', 'SWAP']}
+    {'state': (2, 5, 0, 1, 3, 4), 'path': ['PUSH', 'FLIP']}
+    getNext:  {'state': (2, 0, 5, 4, 3, 1), 'path': ['PUSH', 'PUSH']}
+    After getNext:
+    {'state': (2, 5, 4, 3, 0, 1), 'path': ['PULL']}
+    {'state': (2, 4, 5, 0, 3, 1), 'path': ['SWAP']}
+    {'state': (2, 5, 4, 0, 1, 3), 'path': ['FLIP']}
+    {'state': (2, 5, 4, 0, 3, 1), 'path': ['PUSH', 'PULL']}
+    {'state': (5, 2, 0, 4, 3, 1), 'path': ['PUSH', 'SWAP']}
+    {'state': (2, 5, 0, 1, 3, 4), 'path': ['PUSH', 'FLIP']}
+
+* Note that the number of items in the frontier is reduced by 1 after getNext().
+* You can assume that the input frontier is always a list of dictionary, each with a valid state (a tuple of values 0-5) and valid path (a list of moves).
