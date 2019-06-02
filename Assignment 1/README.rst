@@ -20,70 +20,56 @@ Task 1: Encryption
     cipher = afencode( text, a, b )
     print( text, "=>", cipher )
 
+which produces the output ::
 
+        Attack! => Nccnfz!
 
-**INPUT FILE INFO:**
+* Note that the letter case is preserved.
+* You can assume that the parameter text is always a string, the paramters a and b are always integers.
 
-* First line is the budget. *NOTE*: The budget cannot be negative.
-* The next lines are menu items and their corresponding prices seperated by '*' for allignment.
-
-
-**EXAMPLE**::
-    
-    100
-    Ichiraku Ramen***************42 
-    EndGame Coke 0***************06
-    Warai Azami******************02
-    Potato Chips*****************11
-
-
-**OUTPUT FILE INFO:**
-
-* First few lines shows the menu items and their corresponding quantities to buy.
-* Last line shows the total spending. This can be equal to the budegt or LOWER.
-
-**EXAMPLE**::
-
-    **RECOMMENDATION**
-    Potato Chips x 1
-    Warai Azami x 2
-    Ichiraku Ramen x 2
-
-    Total Spending: $ 99.00
-    
-    
-Known areas for improvement:
--------
-* Goes through highest prices first and does not take other combination into account.
-    
-**EXAMPLE:**
-For input::
-
-      1000
-      Onigiri**********************450
-      WacDonald Burger*************200
-      Water************************350
-      
-@Version 1 Output::
-
-      **RECOMMENDATION**
-      Onigiri x 2
-
-      Total Spending: $ 900.00
-      
-Better Output::
-
-      Onigiri x 1
-      Water x 1
-      WacDonald Burger x 1
-      
-      Total Spending: $ 1000.00    
-      
-      
-Ideas for @Version 2
+Task 2: Decryption
 -------
 
-* Budget can be in different currency.
-* Accept multiple menus and give different recommendations based on the menu.
-* Accept multiple txt files.
+* Define the function afdecode(cipher, a, b) in affine.py with three parameters, cipher, a and b.
+* Parameter cipher is a string to be decrypted.
+* Parameters a and b form the key of the cipher.
+* The function should process each character in Cipher, if the character is a letter, decrypt it using Affine Cipher, otherwise, the character is retained.
+* Once the function is implemented in affine.py, you can test the funtion with the following code in main.py ::
+
+        from affine import *
+        cipher = "Nccnfz!"
+        a = 9
+        b = 13
+        text = afdecode( cipher, a, b )
+        print( cipher, "=>", text )
+
+which produces the output ::
+
+        Nccnfz! => Attack!
+
+* Note that the letter case is preserved.
+* You can make use of the given mInverse() function to find the inverse of a.
+* You can assume that the parameter cipher is always a string, the parameters a and b are always integers, and there is an inverse for parameter a.
+
+Task 1: RSA encryption
+-------
+
+* Define the function rsaencrypt(value, n, e) in rsa.py with three parameters, value, n and e.
+* Parameter value is a value to be encrypted.
+* Parameters n and e form the public key for the RSA encryption.
+* The function should encrypt the value using RSA public key (n,e) and return the resulting code.
+* Once the function is implemented in rsa.py, you can test the funtion with the following code in main.py ::
+
+        from rsa import *
+        value = 100
+        n = 30360138080141                                                                  
+        e = 5510009                                                                         
+        code = rsaencrypt( value, n, e )
+        print( value, "=>", code )
+
+which produces the output of ::
+
+        100 => 15251238784560
+
+* You can assume that the parameters value, n, and e are always integers.
 
