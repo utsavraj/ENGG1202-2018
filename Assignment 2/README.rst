@@ -86,4 +86,30 @@ which produces the output ::
 * You can assume that the board will not exceed the size of 8.
 
 
+Task 2: move one queen
+-------
 
+* Judging from the attack matrix shown for (0, 3, 2, 1) in the previous part, the lowest possible attack count of moving one queen will be 2.
+* To solve a board using the local search method, we move one queen at a time based on the current best move. In this case, we will move queen 2 to position 1 or 3.
+* Define the function moveOne(queen) in nqueen.py with one parameter, queen.
+* Parameter queen is a tuple representing a n-queen problem as described above.
+* The function should always move one queen based on the attack matrix and return the result.
+* For example, for the case of (0, 3, 2, 1), the function should return either (0, 3, 1, 1) or (0, 3, 3, 1).
+* The function should still move a queen if the move results in a higher attacking count.
+* For example, you can test your function in main.py using the following code ::
+
+    from nqueen import *
+    queen1 = (0, 3, 2, 1)
+    queen2 = moveOne( queen1 )
+    printBoard(queen2)
+
+    
+which produces the output ::
+
+    Q - - -
+    - - - Q
+    - Q - -
+    - Q - -
+
+* Note the use of printBoard() function provided at the beginning of this part of assignment.
+* You can assume that the input queen is always a valid board, with all values less than the size of board.
