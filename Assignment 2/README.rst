@@ -50,6 +50,7 @@ Task 1: The attack matrix
         return count
 
 You can use the above function in this and the following tasks.
+
 * For this task, define the function printMatrix(queen) in nqueen.py with one parameter, queen.
 * Parameter queen is a tuple representing a n-queen problem as described above.
 * The function should print the corresponding attack matrix, with each value occupying 2 spaces, left-aligned.
