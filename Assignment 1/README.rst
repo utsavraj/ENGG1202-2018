@@ -112,7 +112,7 @@ Task 3: RSA hacking
         d = rsahack( n, e )
         print( n, ",", e, "=>", d )
  
- which produces the output of ::
+which produces the output of ::
  
         493, 11 => 163
  
