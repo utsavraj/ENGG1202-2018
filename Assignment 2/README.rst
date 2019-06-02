@@ -282,4 +282,24 @@ Task 2: heuristic
     * C=2 (ball 1, and 2)
     * D=min(3×17,2×17+8)=42
     * return A+D=92
-* You can test your function with the following code in main.py
+* You can test your function with the following code in main.py ::
+
+        from sortballs import *
+        state = (2, 5, 4, 1, 3, 0)
+        print(h(state))
+ 
+which produces the output of 92
+
+* Another example, to find the heuristic of (2, 5, 4, 0, 3, 1):
+    * A=3×10=30
+    * B=3 (ball 4, 3 and 1)
+    * C=1 (ball 2)
+    * D=min(3×17,1×17+8)=25
+    * return A+D=55
+* One last example, to find the heuristic of (0, 1, 2, 3, 4, 5):
+    * A=0×10=0
+    * B=0
+    * C=4 (ball 1, 2, 3, and 4)
+    * D=min(0,4×17+8)=0
+    * return A+D=0 (Goal state)
+* You can assume that the input state is always a valid state, i.e., a tuple with values 0 to 5 in any order.
